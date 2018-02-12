@@ -8,6 +8,7 @@
 	  <name>simtembile</name>
 	  <description>never mind</description>
 
+	<packaging>war</packaging>
   
     <parent>
         <groupId>org.springframework.boot</groupId>
