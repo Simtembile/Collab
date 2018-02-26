@@ -46,5 +46,6 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
+    $("#name").keydown(function(){ sendName(); });
     $( "#send" ).click(function() { sendName(); });
 });

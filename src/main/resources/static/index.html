@@ -8,6 +8,8 @@
     <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
     <script src="/app.js"></script>
+    <script src="/function.js"></script>
+    
 </head>
 <body>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
@@ -36,7 +38,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
@@ -47,7 +49,13 @@
                 </tbody>
             </table>
         </div>
+   
+        <div class="col-md-6">
+            <textarea style="resize: both; height: 600px; width:100%;" id="textarea"></textarea>
+        </div>
     </div>
+    
+    
 </div>
 </body>
 </html>
