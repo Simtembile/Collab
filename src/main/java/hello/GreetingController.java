@@ -3,6 +3,7 @@ package hello;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class GreetingController {
@@ -15,4 +16,9 @@ public class GreetingController {
         return new Greeting("Hello what the , " + message.getName() + "!");
     }
 
+    @RequestMapping(value="cmt")
+    public String cmt() {
+    	
+    	return "test.jsp";  	
+    }
 }
