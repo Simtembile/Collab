@@ -1,66 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>   
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Hello WebSocket</title>
+
     <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/main.css" rel="stylesheet">
-    <script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
-    <script src="/app.js"></script>
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    
+    <link href="/main.css" rel="stylesheet">    
     <script src="/function.js"></script>
     
+       <title>Collab-Editor</title>
 </head>
 <body>
-<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
-    enabled. Please enable
-    Javascript and reload this page!</h2></noscript>
-<div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="connect">WebSocket connection:</label>
-                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="name">What is your name?</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your name here...">
-                </div>
-                <button id="send" class="btn btn-default" type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <table id="conversation" class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Greetings</th>
-                </tr>
-                </thead>
-                <tbody id="greetings">
-                </tbody>
-            </table>
-        </div>
-   
-        <div class="col-md-6">
-            <textarea style="resize: both; height: 600px; width:100%;" id="textarea"></textarea>
-        </div>
-    </div>
-    
-    <p><a href="cmt">Enter new contact</a></p>
-    
-    
-</div>
+	
+	<div class="container">
+		
+		<div class="row">
+			
+			<div class="col-md-12 dash-heading">
+			
+				<h1 >The Collab-Editor Online</h1>
+				<p>This blaha blah blah</p>
+				
+			</div>			
+		
+		
+		</div>
+	
+		<div class="row">
+			<div class="col-md-6" style="border-right: 1px solid white;"></div>
+			<div class="col-md-6 theform">
+			
+				<form   action="authenticate" method="post" >
+					<div class="form-group">
+						<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
+					</div>
+					<div class="form-group">
+						<input type="password" class="me-textfield" name="password" placeholder="  Password"/>
+					</div>
+					
+					<input type="Submit"  value="Login" class="btn btn-dark" />
+					
+				</form>
+				
+				<a href="authenticate">Create new account</a>
+				
+				
+			</div>
+		
+		
+		</div>
+	</div>
+	
 </body>
 </html>

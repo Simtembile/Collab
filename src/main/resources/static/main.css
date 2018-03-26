@@ -1,1 +1,40 @@
-@CHARSET "ISO-8859-1";
+* {
+margin: 0;
+padding: 0; 
+}
+
+body{   
+		
+    background: #1c2531;
+    color:#c5c8cc;
+    margin-top: 0;
+    padding: 0;    
+    
+}
+.theform {
+	
+	padding: 100px;
+	
+}
+
+.me-textfield {
+    border-radius: 5px;
+    width: 200px;
+    background-color: lightcyan;
+}
+.filemanager{
+	
+	
+	
+}
+
+.operation{
+	
+	float: left;
+	padding: 0 15px 0 15px;
+}
+
+.dash-heading{
+	
+	padding: 15px 0 15px 0;
+}

@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Hello WebSocket</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
     <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    
     <link href="/main.css" rel="stylesheet">
-    <script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
-    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
     <script src="/app.js"></script>
     <script src="/function.js"></script>
     
+    
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+    
+    <title>Hello WebSocket</title>
 </head>
 <body>
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
@@ -27,6 +35,7 @@
                 </div>
             </form>
         </div>
+        
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
@@ -54,6 +63,11 @@
             <textarea style="resize: both; height: 600px; width:100%;" id="textarea"></textarea>
         </div>
     </div>
+    
+    <p><a href="cmt">Enter new contact</a></p>
+    
+    <p> ${username}</p>
+    <p> ${password}</p>
     
     
 </div>
