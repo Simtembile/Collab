@@ -26,7 +26,7 @@
 			<div class="col-md-12 dash-heading">
 			
 				<h1 >The Collab-Editor Online</h1>
-				<p>This blaha blah blah</p>
+				<p> <i>By Simtembile Soginga and Cagri Inal</i> </p>
 				
 			</div>			
 		
