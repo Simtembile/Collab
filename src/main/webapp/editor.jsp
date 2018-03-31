@@ -9,9 +9,9 @@
     <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     
-    <link href="/main.css" rel="stylesheet">
-    <script src="/app.js"></script>
-    <script src="/function.js"></script>
+    <link href="/resources/static/main.css" rel="stylesheet">
+    <script src="/resources/static/app.js"></script>
+    <script src="/resources/static/function.js"></script>
     
     
     <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>

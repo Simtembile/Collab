@@ -11,9 +11,9 @@
     <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
    
    
-    <link href="/main.css" rel="stylesheet">
+    <link href="/resources/static/main.css" rel="stylesheet">
  
-    <script src="/function.js"></script>
+    <script src="/resources/static/function.js"></script>
     
    
     <title>Files</title>

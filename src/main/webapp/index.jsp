@@ -12,8 +12,8 @@
     <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
     <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     
-    <link href="/main.css" rel="stylesheet">    
-    <script src="/function.js"></script>
+    <link href="/resources/static/main.css" rel="stylesheet">
+    <script src="/resources/static/function.js"></script>
     
        <title>Collab-Editor</title>
 </head>
