@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -31,8 +33,8 @@ public class HomeController {
 		System.out.println(  request.getParameter("username")  );
 		System.out.println( request.getParameter("password"));
 		
-		//check the username and password from the database
-		
+		//TODO:
+		//check the username and password from the database		
 		//if correct logins, retrieve the file from the data base and send the with model.
 		
 		String[] cmt = {"Simtembile", "Soginga","Simtembile", "Soginga","Simtembile", "Soginga","Simtembile", "Soginga"};
@@ -44,7 +46,27 @@ public class HomeController {
 		
 		
 		
-		return "dashboard.jsp";
+		return "dashboard";
+		
+	}
+	
+	@RequestMapping("/add")
+	public String add( HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		//TODO: save to database
+		
+		
+		return "";
+		
+	}
+	
+	
+	@RequestMapping("/edit/{id}")
+	public String editor(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response, Model model) {
+
+		//TODO: load file stream from the database
+		System.out.println("Path var: " +  id);
+		return "redirect:/editor.jsp";
 		
 	}
 	

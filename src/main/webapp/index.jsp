@@ -49,12 +49,40 @@
 					
 				</form>
 				
-				<a href="authenticate">Create new account</a>
+				<div id="signup">Create new account</div>
 				
 				
 			</div>
 		
 		
+		</div>
+	</div>
+	
+	<div id="signup_overlay" >
+		<div class="outer">
+			<div class="middle">
+				<div id="close-form" style="cursor: pointer;">CLOSE</div>
+				<form id="form2"  action="add" method="post" >
+						<div class="form-group">
+							<input type="text" class="me-textfield" name="name" placeholder="  Name"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="me-textfield" name="email" placeholder="  Email"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
+						</div>
+						<div class="form-group">
+							<input type="password" class="me-textfield" name="password" placeholder="  Password"/>
+						</div>
+						<div class="form-group">
+							<input type="password" class="me-textfield" name="confirm_password" placeholder="  Confirm password"/>
+						</div>
+						
+						<input type="Submit"  value="Register" class="btn btn-dark" />
+						
+				</form>
+			</div>
 		</div>
 	</div>
 	

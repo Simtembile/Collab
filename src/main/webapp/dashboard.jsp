@@ -38,7 +38,7 @@
     			<div class="filemanager">
     			
 	    			<div class="operation">Files</div>
-	    			<div class="operation">New file</div>
+	    			<div class="operation"> <a href="/edit/new_file"> New file  </a></div>
 	    			<div class="operation">Delete file</div>
     			
     			</div>
@@ -59,7 +59,7 @@
 	    		<table class="table table-striped">
 		    		<c:forEach items="${fileList}" var="e">
 					<tr>
-						<td>${e}</td>
+						<td>  <a href="/edit/ ${e}"> ${e}   </a> </td>
 						
 					</tr>
 					</c:forEach>
