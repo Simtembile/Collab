@@ -15,12 +15,16 @@ function setConnected(connected) {
 function connect() {
     var socket = new SockJS('/file-sys-channel');
     stompClient = Stomp.over(socket);
+    
     stompClient.connect({}, function (frame) {
         setConnected(true);
+        
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
+        
+        stompClient.subscribe('/topic/greetings', function (input) {
+            getServerInput(JSON.parse(input.body));//returns a JSON object of Input class
         });
+        
     });
 }
 
@@ -32,13 +36,21 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+function sendName(character) {
+	//Send the char and the position in the text area
+    stompClient.send("/app/hello", {}, JSON.stringify({'character': character ,'position': $('#textarea').prop("selectionStart")  }));
 }
 
-function showGreeting(message) {
-       
-	 $("#greetings").append(" " + message + " ");
+function getServerInput(message) {
+    //using the position of the char, partition the current content of the textarea so that you can insert the character at that position
+	 var cursorPos = message.position;
+           var v = $('#textarea').val();
+           var textBefore = v.substring(0,  cursorPos );
+           var textAfter  = v.substring( cursorPos, v.length );
+           $('#textarea').val( textBefore+ String.fromCharCode( message.character ) +textAfter );
+           
+           setCaretPosition('textarea', cursorPos + 1);
+           //setCaretPosition('textarea', cursorPos);
 }
 
 $(function () {
@@ -47,6 +59,5 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $("#name").keydown(function(){ sendName(); });
-    $( "#send" ).click(function() { sendName(); });
+    
 });

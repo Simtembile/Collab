@@ -6,14 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class GreetingController {
+public class InputProcessingController {
 
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
-    public Greeting greeting(HelloMessage message) throws Exception {
-      
-        return new Greeting(message.getName());
+    public Input greeting(Input input) throws Exception {
+      //just pass the received input as is
+        return new Input( input.getCharacter(), input.getPosition() );
     }
 
    
