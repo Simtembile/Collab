@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
-    <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
    
    
     <link href="/resources/static/main.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     	</div>
     	<div class="row">
     		
+    		<p>${x}</p>
+    		
     		<c:if test="${ empty fileList}" >    		
     			<div>Your files will appear here. No files yet.</div>
     		</c:if>
@@ -59,7 +61,7 @@
 	    		<table class="table table-striped">
 		    		<c:forEach items="${fileList}" var="e">
 					<tr>
-						<td>  <a href="/edit/ ${e}"> ${e}   </a> </td>
+						<td>  <a href="/edit/${e.id}"> ${e.filename}   </a> </td>
 						
 					</tr>
 					</c:forEach>

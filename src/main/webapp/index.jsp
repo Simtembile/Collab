@@ -3,14 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>   
  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
-    <script src="webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     
     <link href="/resources/static/main.css" rel="stylesheet">
     <script src="/resources/static/function.js"></script>
@@ -37,7 +37,7 @@
 			<div class="col-md-6" style="border-right: 1px solid white;"></div>
 			<div class="col-md-6 theform">
 			
-				<form   action="authenticate" method="post" >
+				<form   action="dashboard" method="post" >
 					<div class="form-group">
 						<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
 					</div>
@@ -63,15 +63,14 @@
 			<div class="middle">
 				<div id="close-form" style="cursor: pointer;">CLOSE</div>
 				<form id="form2"  action="add" method="post" >
+						
 						<div class="form-group">
-							<input type="text" class="me-textfield" name="name" placeholder="  Name"/>
+							<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
 						</div>
 						<div class="form-group">
 							<input type="text" class="me-textfield" name="email" placeholder="  Email"/>
 						</div>
-						<div class="form-group">
-							<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
-						</div>
+						
 						<div class="form-group">
 							<input type="password" class="me-textfield" name="password" placeholder="  Password"/>
 						</div>
