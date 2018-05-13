@@ -34,7 +34,7 @@
 		</div>
 	
 		<div class="row">
-			<div class="col-md-6" style="border-right: 1px solid white;"></div>
+			<div class="col-md-6" style="border-right: 1px solid white;" ></div>
 			<div class="col-md-6 theform">
 			
 				<form   action="dashboard" method="post" >

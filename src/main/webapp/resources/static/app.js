@@ -1,5 +1,16 @@
 var stompClient = null;
 
+$(function () {
+    $("#form1").on('submit', function (e) {
+        e.preventDefault();
+    });
+    $( "#connect" ).click(function() { connect(); });
+    $( "#disconnect" ).click(function() { disconnect(); });
+    
+    
+    
+});
+
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
@@ -21,7 +32,7 @@ function connect() {
         
         console.log('Connected: ' + frame);
         
-        stompClient.subscribe('/topic/greetings', function (input) {
+        stompClient.subscribe('/topic/input-processor', function (input) {
             getServerInput(JSON.parse(input.body));//returns a JSON object of Input class
         });
         
@@ -36,9 +47,14 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName(character) {
+function sendInput(character) {
 	//Send the char and the position in the text area
-    stompClient.send("/app/hello", {}, JSON.stringify({'character': character ,'position': $('#textarea').prop("selectionStart")  }));
+    stompClient.send("/app/process", {}, JSON.stringify({'character': character ,'position': $('#textarea').prop("selectionStart")  }));
+}
+
+function sendStringData(data) {
+	//Send the char and the position in the text area
+    stompClient.send("/app/datasream", {}, JSON.stringify({'stream':data  }));
 }
 
 function getServerInput(message) {
@@ -47,17 +63,9 @@ function getServerInput(message) {
            var v = $('#textarea').val();
            var textBefore = v.substring(0,  cursorPos );
            var textAfter  = v.substring( cursorPos, v.length );
-           $('#textarea').val( textBefore+ String.fromCharCode( message.character ) +textAfter );
+           $('#textarea').val( textBefore+ String.fromCharCode( message.character ) + textAfter );
            
            setCaretPosition('textarea', cursorPos + 1);
            //setCaretPosition('textarea', cursorPos);
 }
 
-$(function () {
-    $("form").on('submit', function (e) {
-        e.preventDefault();
-    });
-    $( "#connect" ).click(function() { connect(); });
-    $( "#disconnect" ).click(function() { disconnect(); });
-    
-});

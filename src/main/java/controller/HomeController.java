@@ -45,12 +45,9 @@ public class HomeController {
 		}
 		
 		//TODO: if correct logins, retrieve the files associated with that user from the data base and send them with model.
-		List<Document> files = documentRepository.findByUser_username(username);
+		List<Document> files = documentRepository.findByUsers_username(username);
 		
 		
-		//System.out.println("What's in there: " + files.size());
-		//for(Document doc: files)
-		//	System.out.println(doc.getId() + "    --   " + doc.getFilename() + "     -----    "+ doc.getDatastream() + "     -----    " + doc.getUser().getUsername());
 		
 		model.addAttribute("fileList", files);
 				
@@ -99,7 +96,28 @@ public class HomeController {
 	}
 	
 	
-	
+	@RequestMapping("/share")
+	public String share(HttpServletRequest request, Model model) {
+		
+		
+		System.out.println(request.getParameter("fileid") + "  =====  " + request.getParameter("shareto"));
+		try {
+			Integer id = Integer.parseInt( request.getParameter("fileid") );
+			String username = request.getParameter("shareto");
+			
+			User user = userRepository.findOne(username);
+			Document doc = documentRepository.findOne(id);
+			
+			doc.getUsers().add(user);
+			
+			documentRepository.save(doc);
+			
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return "redirect:";
+		
+	}
 
 
 }

@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DocumentRepository extends CrudRepository<Document, Integer> {
 
-	@Query("select u from Document u where u.user.username = ?1")
-	  List<Document> findByUser_username(String username);
+	//@Query("select id, filename, datastream from Document as d, User as u where u.username = ?1 and d.users.username = ?1"
+	//		+ "and d.id = du.documents_id")
+	List<Document> findByUsers_username(String username);
 	
 }

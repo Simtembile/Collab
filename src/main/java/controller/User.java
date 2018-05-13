@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity // for table creation
@@ -13,7 +14,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    @OneToMany(mappedBy="user")
+    @ManyToMany(mappedBy="users")
     private List<Document> documents;
 
 	public String getPassword() {

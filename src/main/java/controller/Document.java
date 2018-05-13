@@ -1,9 +1,12 @@
 package controller;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -14,8 +17,8 @@ public class Document{
 	private Integer id;
 	private String filename;
 	private String datastream;
-	@ManyToOne
-	private User user;
+	@ManyToMany
+	private  List<User> users;
 	public Integer getId() {
 		return id;
 	}
@@ -34,12 +37,13 @@ public class Document{
 	public void setDatastream(String datastream) {
 		this.datastream = datastream;
 	}
-	public User getUser() {
-		return user;
+	public List<User> getUsers() {
+		return users;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
+
 
  
 	
