@@ -21,11 +21,6 @@ a:link, a:visited {
     width: 100%;
 }
 
-
-a:hover, a:active {
-    
-}
-
 div#signup {
     color: mediumslateblue;
     cursor: pointer;
@@ -66,7 +61,7 @@ div#signup {
 
 .theform {
 	
-	padding: 100px;
+	padding: 300px 20px 0 20px;
 	
 }
 
@@ -75,20 +70,18 @@ div#signup {
     width: 200px;
     background-color: lightcyan;
 }
-.filemanager{
-	
-	
-	
-}
+
 
 .operation{
 	
 	float: left;
-	padding: 0 15px 0 15px;
-	cursor: pointer;
+    padding: 0 15px 0 15px;
+    width: 120px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .dash-heading{
 	
-	padding: 15px 0 15px 0;
+	padding: 25px 0 25px 0;
 }

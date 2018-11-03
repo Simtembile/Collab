@@ -1,11 +1,11 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity // for table creation
 public class User {
@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String password;
     @ManyToMany(mappedBy="users")
-    private List<Document> documents;
+    private List<Document> documents = new ArrayList<Document>();
 
 	public String getPassword() {
 		return password;

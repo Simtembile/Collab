@@ -14,13 +14,6 @@ $(function () {
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
-    if (connected) {
-        $("#conversation").show();
-    }
-    else {
-        $("#conversation").hide();
-    }
-    $("#greetings").html("");
 }
 
 function connect() {
@@ -47,9 +40,9 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendInput(character) {
+function sendInput(character,spanid) {
 	//Send the char and the position in the text area
-    stompClient.send("/app/process", {}, JSON.stringify({'character': character ,'position': $('#textarea').prop("selectionStart")  }));
+    stompClient.send("/app/process", {}, JSON.stringify({'character': character ,'position': spanid }));
 }
 
 function sendStringData(data) {
@@ -58,14 +51,32 @@ function sendStringData(data) {
 }
 
 function getServerInput(message) {
-    //using the position of the char, partition the current content of the textarea so that you can insert the character at that position
-	 var cursorPos = message.position;
-           var v = $('#textarea').val();
-           var textBefore = v.substring(0,  cursorPos );
-           var textAfter  = v.substring( cursorPos, v.length );
-           $('#textarea').val( textBefore+ String.fromCharCode( message.character ) + textAfter );
-           
-           setCaretPosition('textarea', cursorPos + 1);
-           //setCaretPosition('textarea', cursorPos);
+   
+	
+	// update the content of the editor with the value from the server
+	tinymce.get('textarea').setContent(  message.character );
+	
+	var ed = tinyMCE.activeEditor;
+	
+	console.log('SPAN ID : ', SPAN_ID);
+	console.log('Other userd ID : ', message.position);
+	console.log('Editor : ', ed);
+	
+	/*------------------------------/
+		var content = tinymce.get('textarea').getContent();
+		content = content.replace('<span id=\"mce_3\"></span>', '<span id=\"mce_3\">|</span>');
+		editor.setContent(content);
+	/-------------------------------*/
+	
+	
+	//set caret position again by
+	//selecting the span previously pointed to by the caret
+	
+	var newNode = ed.dom.select('span#' + SPAN_ID);
+	
+	ed.selection.select(newNode[0]);	
+	
+	console.log('Found spand: ', newNode);
+	
 }
 

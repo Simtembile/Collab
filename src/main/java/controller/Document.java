@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Document{
@@ -18,7 +18,17 @@ public class Document{
 	private String filename;
 	private String datastream;
 	@ManyToMany
-	private  List<User> users;
+	private  List<User> users = new ArrayList<User>();
+	
+	public Document() {}
+	
+	public Document(Integer id, String filename, String datastream, List<User> users) {
+		super();
+		this.id = id;
+		this.filename = filename;
+		this.datastream = datastream;
+		this.users = users;
+	}
 	public Integer getId() {
 		return id;
 	}

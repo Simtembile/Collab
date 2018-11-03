@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hamcrest.core.IsSame;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,25 +23,32 @@ public class HomeController {
 	@Autowired 
    	private DocumentRepository documentRepository;
 	
+	private String user_id = "";
 	
-	@RequestMapping("/dashboard")
+	@RequestMapping("/dashboard-s")
 	public String login( HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		String username =  request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		user_id = username;
 		//TODO: check the username and password from the database
 		//for simplicity, i'll assume the user enters all valid data! for now
 		User isSaved = userRepository.findByUsernameAndPassword(username, password);
 		
-		System.out.println( "================ Retrieved : username:  " + isSaved.getUsername() + "    password: " + isSaved.getPassword() + "   ===============");
+		//System.out.println( "================ Retrieved : username:  " + isSaved.getUsername() + "    password: " + isSaved.getPassword() + "   ===============");
+		try {
 		
-		if( isSaved == null || !isSaved.getUsername().equals(username.trim()) || !isSaved.getPassword().equals(password.trim())) {
-			
-			//TODO: notify user about invalid credentials.
-			
+			if( isSaved == null || !isSaved.getUsername().equals(username.trim()) || !isSaved.getPassword().equals(password.trim())) {
+				
+				//TODO: notify user about invalid credentials.
+				
+				return "redirect:/";
+				
+			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
 			return "redirect:/";
-			
 		}
 		
 		//TODO: if correct logins, retrieve the files associated with that user from the data base and send them with model.
@@ -50,6 +57,7 @@ public class HomeController {
 		
 		
 		model.addAttribute("fileList", files);
+		model.addAttribute("username", username);
 				
 		return "dashboard";
 		
@@ -69,9 +77,6 @@ public class HomeController {
 		user.setEmail(email);
 		user.setPassword(password);
 		
-		System.out.println( "Username ---- : " + username);
-		System.out.println( "Email ---- : " + email);
-		System.out.println( "Password ---- : " + password);
 		//save user
 		userRepository.save(user);
 		
@@ -100,7 +105,6 @@ public class HomeController {
 	public String share(HttpServletRequest request, Model model) {
 		
 		
-		System.out.println(request.getParameter("fileid") + "  =====  " + request.getParameter("shareto"));
 		try {
 			Integer id = Integer.parseInt( request.getParameter("fileid") );
 			String username = request.getParameter("shareto");
@@ -112,10 +116,45 @@ public class HomeController {
 			
 			documentRepository.save(doc);
 			
+			
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "redirect:";
+		
+		
+		List<Document> files = documentRepository.findByUsers_username(user_id);		
+		model.addAttribute("fileList", files);
+		
+		return "dashboard";
+		
+	}
+	
+	@RequestMapping("/save-doc")
+	public String save(HttpServletRequest request, Model model) {
+		
+		
+		String fileid = request.getParameter("fileid");
+		String filename = request.getParameter("filename");
+		String datastream = request.getParameter("datastream");
+		
+		User belongsTo = userRepository.findOne(user_id);
+		Document doc = new Document();
+		
+		if( !fileid.equalsIgnoreCase("") && fileid !=null )
+			doc.setId( Integer.parseInt(fileid) );
+		
+		doc.setFilename(filename);
+		doc.setDatastream(datastream);
+		doc.getUsers().add(belongsTo);
+				
+		documentRepository.save( doc);
+		
+		
+		List<Document> files = documentRepository.findByUsers_username(user_id);		
+		model.addAttribute("fileList", files);
+		model.addAttribute("username", user_id);
+		
+		return "dashboard";
 		
 	}
 

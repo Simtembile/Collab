@@ -22,40 +22,48 @@
 	<div class="container">
 		
 		<div class="row">
-			
-			<div class="col-md-12 dash-heading">
-			
-				<h1 >The Collab-Editor Online</h1>
-				<p> <i>By Simtembile Soginga and Cagri Inal</i> </p>
-				
-			</div>			
-		
-		
-		</div>
-	
-		<div class="row">
-			<div class="col-md-6" style="border-right: 1px solid white;" ></div>
-			<div class="col-md-6 theform">
-			
-				<form   action="dashboard" method="post" >
-					<div class="form-group">
-						<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
-					</div>
-					<div class="form-group">
-						<input type="password" class="me-textfield" name="password" placeholder="  Password"/>
-					</div>
+			<div class="col-md-6 ">	
+				<div class="row">
+					<div class="col-md-12 dash-heading">
 					
-					<input type="Submit"  value="Login" class="btn btn-dark" />
+						<h1 >The Collab-Editor Online</h1>
+						<p> <i>By Simtembile Soginga and Cagri Inal</i> </p>
+						
+					</div>	
 					
-				</form>
-				
-				<div id="signup">Create new account</div>
-				
-				
+					<div class="col-md-12 ">
+					
+						<img src="/resources/static/cmt.png" width="350px" height="350px" alt="Mountain View">
+					</div>	
+				</div>		
+			</div>
+
+			<div class="col-md-6 ">	
+				<div class="row">
+					<div class="col-md-2" style="border-right: 1px solid white;" ></div>
+					<div class="col-md-10 theform">
+					
+						<form   action="dashboard-s" method="post" >
+							<div class="form-group">
+								<input type="text" class="me-textfield" name="username" placeholder="  Username"/>
+							</div>
+							<div class="form-group">
+								<input type="password" class="me-textfield" name="password" placeholder="  Password"/>
+							</div>
+							
+							<input type="Submit"  value="Login" class="btn btn-dark" />
+							
+						</form>
+						
+						<div id="signup">Create new account </div>
+						
+						
+						</div>
+				</div>
 			</div>
 		
-		
 		</div>
+		
 	</div>
 	
 	<div id="signup_overlay" >

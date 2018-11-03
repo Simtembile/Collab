@@ -3,12 +3,12 @@ package hello;
 public class Input {
 
     private String character;
-    private Integer position;
+    private String position;
 
     public Input() {
     }
 
-    public Input(String character, Integer position) {
+    public Input(String character, String position) {
 		
 		this.character = character;
 		this.position = position;
@@ -24,13 +24,15 @@ public class Input {
 		this.character = character;
 	}
 
-	public Integer getPosition() {
+	public String getPosition() {
 		return position;
 	}
 
-	public void setPosition(Integer position) {
+	public void setPosition(String position) {
 		this.position = position;
 	}
-    
+	
+	
+
     
 }
